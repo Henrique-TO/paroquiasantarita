@@ -7,7 +7,7 @@ export default function Header({ title }) {
       <div className="container header-inner">
         <h1 className="brand">{title}</h1>
         <nav>
-          <a href="/#about"><Home size={18} /> Início</a>
+          <a href="/"><Home size={18} /> Início</a>
           <a href="/#missas"><Church size={18} /> Missas</a>
           <a href="/#eventos"><CalendarDays size={18} /> Eventos</a>
           <a href="/#galeria"><Image size={18} /> Galeria</a>
