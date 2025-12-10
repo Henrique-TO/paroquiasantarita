@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;600&display=swap');
+@import 'https://unpkg.com/aos@2.3.4/dist/aos.css';
+
+:root {
+  --max-width: 1300px;
+  --primary-blue: #005a9e;
+  --dark-blue:    #003b73;
+  --light-blue:   #e3f6fe; /* Slightly softer */
+  --gold:         #d4af37;
+  --gold-light:   #f0d689;
+  --white:        #ffffff;
+  --light-bg:     #f8fcff;
+  --text:         #2c3e50;
+  --text-muted:   #64748b;
+  --shadow-sm:    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md:    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg:    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --glass:        rgba(0, 90, 158, 0.95);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  line-height: 1.8;
+  background: var(--light-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .brand, .section-title {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ==================== CONTAINER ==================== */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+
+/* ==================== HEADER ==================== */
+.site-header {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+.brand { 
+  margin: 0; 
+  font-size: 2rem; 
+  font-weight: 800; 
+  color: var(--white); 
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.brand span { color: var(--gold); }
+
+.header-inner nav a {
+  color: rgba(255,255,255,0.9); text-decoration: none; margin-left: 2.5rem;
+  font-weight: 500; font-size: 1.05rem; transition: all 0.3s ease;
+  position: relative;
+}
+.header-inner nav a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--gold); transition: width 0.3s ease;
+}
+.header-inner nav a:hover { color: var(--white); }
+.header-inner nav a:hover::after { width: 100%; }
+
+/* ==================== SEÇÕES ==================== */
+.about, .mass-times, .events, .gallery, .contact, #clero, #pastorais, #dizimo, #liturgia {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.about, .events, .contact { background: var(--white); }
+.mass-times, .gallery { background: linear-gradient(to bottom, var(--light-bg), var(--light-blue)); }
+
+/* Background patterns subtis */
+.mass-times::before, .gallery::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(var(--primary-blue) 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+  opacity: 0.03; pointer-events: none;
+}
+
+/* ==================== TÍTULOS ==================== */
+.section-title {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-size: 3rem !important; font-weight: 800;
+  color: var(--primary-blue) !important; margin-bottom: 4rem !important;
+  letter-spacing: -1px;
+}
+.section-title svg {
+  width: 64px !important; height: 64px !important;
+  flex-shrink: 0; padding: 14px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light)); 
+  color: var(--dark-blue);
+  border-radius: 20px; 
+  box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+}
+
+/* ==================== CARDS GENÉRICOS ==================== */
+.card, .event-card, .ministry-card {
+  background: var(--white); 
+  border-radius: 32px; 
+  padding: 3rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,90,158,0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card:hover, .event-card:hover, .ministry-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(212,175,55,0.3);
+}
+
+/* ==================== LISTAS ==================== */
+.mass-list li, .contact p {
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px 0; font-size: 1.2rem;
+  border-bottom: 1px solid rgba(0,90,158,0.1);
+}
+.mass-list li svg, .contact p svg {
+  width: 28px !important; height: 28px !important;
+  color: var(--primary-blue);
+  background: rgba(0,90,158,0.1);
+  padding: 6px;
+  border-radius: 8px;
+}
+.mass-list li strong { color: var(--dark-blue); min-width: 210px; font-weight: 700; }
+
+/* ==================== GRID IMAGENS ==================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem; 
+}
+.gallery-grid img {
+  width: 100%; height: 280px; object-fit: cover;
+  border-radius: 24px; 
+  box-shadow: var(--shadow-md);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.gallery-grid img:hover { 
+  transform: scale(1.03); 
+  box-shadow: var(--shadow-lg);
+}
+
+/* ==================== WHATSAPP ==================== */
+.whatsapp-float {
+  position: fixed; bottom: 30px; right: 30px;
+  width: 64px; height: 64px;
+  background: #25d366; color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  z-index: 2000; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.whatsapp-float:hover { transform: scale(1.1) rotate(5deg); }
+.whatsapp-float img { width: 36px; height: 36px; margin: 0; }
+
+/* ==================== FOOTER ==================== */
+.site-footer {
+  background: var(--dark-blue);
+  color: rgba(255,255,255,0.8);
+  padding: 4rem 0;
+  text-align: center;
+  border-top: 4px solid var(--gold);
+}
+
+/* ==================== RESPONSIVO ==================== */
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; gap: 1.5rem; }
+  .header-inner nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .header-inner nav a { margin: 0; font-size: 0.95rem; }
+  
+  .section-title { font-size: 2.2rem !important; flex-direction: column; text-align: center; gap: 1rem; }
+  .container { padding: 0 1.5rem; }
+  
+  .mass-list li { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .mass-list li strong { min-width: auto; }
+}
+
+html { scroll-behavior: smooth; }
+html.scrolling-to-top { scroll-behavior: instant !important; }

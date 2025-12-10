@@ -1,0 +1,20 @@
+{
+    "times": [
+        {
+            "day": "Segunda-feira",
+            "timeStr": "19:30 - Missa pelas Almas"
+        },
+        {
+            "day": "1ª Sexta-feira do mês",
+            "timeStr": "07:30 - Sagrado Coração de Jesus • 19:30 - Terço das mãos ensanguentadas de Jesus • 20:00 - Missa pedindo por Cura e Libertação"
+        },
+        {
+            "day": "Demais sextas-feiras",
+            "timeStr": "08:00"
+        },
+        {
+            "day": "Domingo",
+            "timeStr": "08:00 • 10:30 • 18:00 - Missas Dominicais"
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (change to master if applicable)
+
+media_folder: "public/assets/uploads" # Media files will be stored in the repo under public/assets/uploads
+public_folder: "/assets/uploads" # The src attribute for uploaded media
+
+collections:
+  - name: "general"
+    label: "Configurações Gerais"
+    files:
+      - name: "info"
+        label: "Informações do Site"
+        file: "src/content/info.json"
+        fields:
+          - {label: "Título do Site", name: "title", widget: "string"}
+          - {label: "Subtítulo", name: "subtitle", widget: "string"}
+          - {label: "Endereço", name: "address", widget: "string"}
+          - {label: "Telefone", name: "phone", widget: "string"}
+          - {label: "Imagem de Capa (Hero)", name: "heroImage", widget: "image"}
+      - name: "about"
+        label: "Sobre a Paróquia"
+        file: "src/content/about.json"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Parágrafos", name: "paragraphs", widget: "list", field: {label: "Parágrafo", name: "text", widget: "markdown"}}
+      - name: "contact"
+        label: "Contato"
+        file: "src/content/contact.json"
+        fields:
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
+          - {label: "Instagram", name: "instagram", widget: "string"}
+      - name: "tithing"
+        label: "Dízimo"
+        file: "src/content/tithing.json"
+        fields:
+          - {label: "Texto Motivacional", name: "text", widget: "text"}
+          - {label: "Chave PIX", name: "pix", widget: "string"}
+          - {label: "Dados Bancários", name: "bank", widget: "object", fields: [
+              {label: "Banco", name: "name", widget: "string"},
+              {label: "Agência", name: "agency", widget: "string"},
+              {label: "Conta", name: "account", widget: "string"},
+              {label: "Favorecido", name: "holder", widget: "string"}
+            ]}
+
+  - name: "events"
+    label: "Eventos"
+    folder: "src/content/events"
+    extension: "json"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Descrição Curta", name: "description", widget: "text"}
+      - {label: "Imagem de Capa", name: "image", widget: "image"}
+      - {label: "Galeria de Fotos", name: "gallery", widget: "list", field: {label: "Imagem", name: "image", widget: "image"}}
+      - {label: "Conteúdo Detalhado", name: "body", widget: "markdown", required: false}
+
+  - name: "clergy"
+    label: "Párocos (Clero)"
+    folder: "src/content/clergy"
+    extension: "json"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nome", name: "name", widget: "string"}
+      - {label: "Função", name: "role", widget: "select", options: ["Pároco", "Vigário", "Diácono", "Outro"]}
+      - {label: "Foto", name: "image", widget: "image"}
+      - {label: "Bio/Descrição", name: "bio", widget: "markdown", required: false}
+      - {label: "Galeria Pessoal", name: "gallery", widget: "list", field: {label: "Foto", name: "image", widget: "image"}, required: false}
+
+  - name: "massTimes"
+    label: "Horários de Missa"
+    files:
+      - name: "massTimes"
+        label: "Horários de Missa"
+        file: "src/content/massTimes.json"
+        fields:
+          - label: "Horários"
+            name: "times"
+            widget: "list"
+            fields:
+              - {label: "Dia da Semana", name: "day", widget: "string"}
+              - {label: "Horários (separados por •)", name: "timeStr", widget: "string"}
+
+  - name: "ministries"
+    label: "Pastorais e Movimentos"
+    files:
+      - name: "ministries"
+        label: "Lista de Pastorais"
+        file: "src/content/ministries.json"
+        fields:
+          - label: "Lista de Pastorais"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Nome", name: "name", widget: "string"}
+              - {label: "Descrição", name: "description", widget: "string"}

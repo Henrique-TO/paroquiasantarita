@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "name": "Catequese",
+            "description": "Iniciação à vida cristã para crianças e adultos."
+        },
+        {
+            "name": "Liturgia",
+            "description": "Equipe responsável pelas celebrações."
+        },
+        {
+            "name": "Música",
+            "description": "Animação das missas e encontros."
+        },
+        {
+            "name": "Dízimo",
+            "description": "Agradecimento e partilha."
+        },
+        {
+            "name": "Jovens",
+            "description": "Grupo de jovens e crisma."
+        },
+        {
+            "name": "Acolhida",
+            "description": "Recebendo com amor nossos fiéis."
+        }
+    ]
+}

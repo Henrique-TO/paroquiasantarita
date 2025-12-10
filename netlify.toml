@@ -1,0 +1,21 @@
+# netlify.toml - Configuração correta para Vite + React + Netlify CMS
+
+[build]
+  command = "npm run build"   # Ou "vite build" se não tiver scripts extras
+  publish = "dist"            # Pasta de saída do Vite (não mude)
+
+# Redirect para rotas SPA (essencial para React Router funcionar)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Redirect para o painel do Netlify CMS (se usar /admin/)
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/:splat"
+  status = 200
+
+# Ambiente (opcional, mas bom para Node 20+)
+[build.environment]
+  NODE_VERSION = "20"
