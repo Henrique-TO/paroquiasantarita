@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: main # Branch to update (change to master if applicable)
 
+local_backend: true
+
 media_folder: "public/assets/uploads" # Media files will be stored in the repo under public/assets/uploads
 public_folder: "/assets/uploads" # The src attribute for uploaded media
 

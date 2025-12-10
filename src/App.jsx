@@ -15,6 +15,18 @@ import React from 'react'
 
 
 export default function App() {
+  React.useEffect(() => {
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  }, []);
+
   return (
     <>
       <Header title={siteData.title} />
