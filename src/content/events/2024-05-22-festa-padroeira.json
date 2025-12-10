@@ -1,8 +1,11 @@
 {
-    "title": "Festa da Padroeira",
-    "date": "2024-05-22T19:00:00.000Z",
-    "description": " celebração em honra a Santa Rita de Cássia.",
-    "image": "/src/assets/hero.jpg",
-    "gallery": [],
-    "body": "Uma grande festa com missa solene e quermesse."
+  "title": "Horarios",
+  "date": "2024-05-22T19:00:00.000Z",
+  "description": "Horarios missa",
+  "image": "/assets/uploads/imagem-do-whatsapp-de-2025-12-05-à-s-15.29.58_893305c9.jpg",
+  "gallery": [
+    "/assets/uploads/imagem-do-whatsapp-de-2025-12-05-à-s-15.29.58_893305c9.jpg",
+    "/assets/uploads/kbmlkmik006.png"
+  ],
+  "body": "Uma grande festa com missa solene e quermesse."
 }
