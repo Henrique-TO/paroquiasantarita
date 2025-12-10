@@ -6,6 +6,8 @@ import massTimes from '../content/massTimes.json';
 import ministries from '../content/ministries.json';
 import tithing from '../content/tithing.json';
 
+import gallery from '../content/gallery.json';
+
 // Helper to load collection data
 function loadCollection(glob) {
   return Object.entries(glob).map(([path, module]) => {
@@ -30,7 +32,5 @@ export const siteData = {
   // Sort events by date descending
   events: loadCollection(eventsData).sort((a, b) => new Date(b.date) - new Date(a.date)),
   clergy: loadCollection(clergyData),
-  gallery: [
-    '/src/assets/gallery/gallery1.jpg' // Keep static gallery or migrate if needed, keeping simple for now as requested "paginas de imagem por evento" which is covered by events
-  ]
+  gallery: (gallery.images || []).map(item => item.image)
 };

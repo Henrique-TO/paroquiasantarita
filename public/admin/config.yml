@@ -33,6 +33,15 @@ collections:
           - {label: "Email", name: "email", widget: "string"}
           - {label: "WhatsApp", name: "whatsapp", widget: "string"}
           - {label: "Instagram", name: "instagram", widget: "string"}
+      - name: "gallery"
+        label: "Galeria de Fotos (Geral)"
+        file: "src/content/gallery.json"
+        fields:
+          - label: "Imagens"
+            name: "images"
+            widget: "list"
+            field: {label: "Imagem", name: "image", widget: "image"}
+
       - name: "tithing"
         label: "Dízimo"
         file: "src/content/tithing.json"

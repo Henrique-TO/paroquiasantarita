@@ -3,17 +3,18 @@ import { Image as ImageIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Lightbox from './Lightbox'
 
-// CARREGA AUTOMATICAMENTE TODAS AS IMAGENS DA PASTA public/gallery/
-const galleryContext = import.meta.glob('/public/gallery/*.{jpg,jpeg,png,webp,avif,gif}', {
-  eager: true,
-  as: 'url'
-})
-const allImages = Object.values(galleryContext)
+// REMOVED AUTO IMPORT - uses CMS data
+// const galleryContext = import.meta.glob('/public/gallery/*.{jpg,jpeg,png,webp,avif,gif}', {
+//   eager: true,
+//   as: 'url'
+// })
+// const allImages = Object.values(galleryContext)
 
-// Ordena por nome (ou pode ser por data se quiser) e pega as 6 últimas
-const latestSix = allImages.sort().reverse().slice(0, 6)
-
-export default function Gallery() {
+export default function Gallery({ images = [] }) {
+  // Ordena por nome (ou pode ser por data se quiser) e pega as 6 últimas
+  // Assuming images come sorted or we just take first 6. 
+  // CMS list order is usually manual. Let's just take first 6.
+  const latestSix = images.slice(0, 6)
   const [selectedImage, setSelectedImage] = useState(null)
 
   if (latestSix.length === 0) return null

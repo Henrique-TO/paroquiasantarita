@@ -3,19 +3,9 @@ import { ArrowLeft } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import Lightbox from '../components/Lightbox'
 
-const galleryContext = import.meta.glob('/public/gallery/*.{jpg,jpeg,png,webp,avif,gif}', {
-  eager: true,
-  as: 'url'
-})
+import { siteData } from '../data/siteData'
 
-const images = Object.values(galleryContext)
-  .map(url => {
-    // Normaliza o caminho para arquivos na pasta public
-    // Remove qualquer prefixo até /public/ e garante que começa com /
-    return url.replace(/.*\/public\//, '/')
-  })
-  .sort()
-  .reverse()
+const images = siteData.gallery
 
 export default function GalleryFull() {
   const { pathname } = useLocation()
