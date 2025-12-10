@@ -22,6 +22,24 @@ function loadCollection(glob) {
 const clergyData = import.meta.glob('../content/clergy/*.json', { eager: true });
 const eventsData = import.meta.glob('../content/events/*.json', { eager: true });
 
+const staticGalleryGlob = import.meta.glob('/public/gallery/*.{jpg,jpeg,png,webp,avif,gif}', {
+  eager: true,
+  as: 'url'
+});
+
+const staticImages = Object.values(staticGalleryGlob).map(url => {
+  return url.replace('/public', '');
+});
+
+// Helper to safely get image URL whether it's a string or object
+const getCmsImage = (item) => {
+  if (typeof item === 'string') return item;
+  if (item && item.image) return item.image;
+  return null;
+};
+
+const cmsImages = (gallery.images || []).map(getCmsImage).filter(Boolean);
+
 export const siteData = {
   ...info,
   about,
@@ -32,5 +50,6 @@ export const siteData = {
   // Sort events by date descending
   events: loadCollection(eventsData).sort((a, b) => new Date(b.date) - new Date(a.date)),
   clergy: loadCollection(clergyData),
-  gallery: (gallery.images || []).map(item => item.image)
+  // Merge: CMS images first (so user can put new ones on top), then static
+  gallery: [...cmsImages, ...staticImages]
 };
