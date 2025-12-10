@@ -6,6 +6,7 @@ import App from './App'
 import GalleryFull from './pages/GalleryFull'
 import EventPage from './pages/EventPage'
 import ClergyPage from './pages/ClergyPage'
+import ClergyProfile from './pages/ClergyProfile'
 import './styles/index.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/galeria" element={<GalleryFull />} />
       <Route path="/eventos/:slug" element={<EventPage />} />
       <Route path="/clero" element={<ClergyPage />} />
+      <Route path="/clero/:slug" element={<ClergyProfile />} />
     </Routes>
   </BrowserRouter>
 );

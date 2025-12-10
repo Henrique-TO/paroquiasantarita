@@ -11,9 +11,7 @@ export default function Clergy({ data }) {
                 <h2 className="section-title">
                     <User /> <Link to="/clero" style={{ color: 'inherit', textDecoration: 'none' }}>Nosso Clero</Link>
                 </h2>
-                <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                    <Link to="/clero" className="btn-secondary">Ver Fotos e Detalhes</Link>
-                </div>
+
                 <div style={{
                     display: 'flex',
                     justifyContent: 'center',
@@ -21,7 +19,27 @@ export default function Clergy({ data }) {
                     flexWrap: 'wrap'
                 }}>
                     {data.map((person, index) => (
-                        <div key={index} className="card" style={{ textAlign: 'center', padding: '2rem' }}>
+                        <Link
+                            to={`/clero/${person.slug}`}
+                            key={index}
+                            className="card clergy-card" // Added class for potential hover effects
+                            style={{
+                                textAlign: 'center',
+                                padding: '2rem',
+                                textDecoration: 'none',
+                                color: 'inherit',
+                                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                display: 'block'
+                            }}
+                            onMouseEnter={e => {
+                                e.currentTarget.style.transform = 'translateY(-10px)';
+                                e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+                            }}
+                            onMouseLeave={e => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.boxShadow = 'var(--card-shadow)';
+                            }}
+                        >
                             <div style={{
                                 width: '280px',
                                 height: '350px',
@@ -30,7 +48,8 @@ export default function Clergy({ data }) {
                                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                                 marginBottom: '1.5rem',
                                 background: '#f0f0f0',
-                                margin: '0 auto 1.5rem'
+                                margin: '0 auto 1.5rem',
+                                position: 'relative' // For overlay if needed
                             }}>
                                 <img
                                     src={person.image}
@@ -41,10 +60,23 @@ export default function Clergy({ data }) {
                                         e.target.src = 'https://placehold.co/280x350/005a9e/FFF?text=Foto';
                                     }}
                                 />
+                                {/* Optional "Ver Perfil" Overlay or Badge could go here */}
+                                <div style={{
+                                    position: 'absolute',
+                                    bottom: '0',
+                                    left: '0',
+                                    width: '100%',
+                                    padding: '1rem',
+                                    background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
+                                    color: 'white',
+                                    opacity: 0.9
+                                }}>
+                                    <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>Ver Perfil &rarr;</span>
+                                </div>
                             </div>
                             <h3 style={{ fontSize: '1.8rem', color: '#222', margin: '0 0 0.5rem', fontWeight: 700 }}>{person.name}</h3>
                             <p style={{ fontSize: '1.2rem', color: '#666', fontStyle: 'italic' }}>{person.role}</p>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
