@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Markdown from 'react-markdown';
 import AOS from 'aos';
+import { ArrowLeft } from 'lucide-react';
 
 export default function EventPage() {
     const { slug } = useParams();
@@ -21,7 +22,7 @@ export default function EventPage() {
     if (!event) {
         return (
             <>
-                <Header title={siteData.title} />
+                <Header />
                 <div className="container" style={{ padding: '100px 20px', textAlign: 'center' }}>
                     <h2>Evento não encontrado</h2>
                     <Link to="/" className="btn-primary">Voltar para Início</Link>
@@ -33,13 +34,15 @@ export default function EventPage() {
 
     return (
         <>
-            <Header title="Evento" />
+            <Header />
             <main className="event-page">
                 {/* Helper Space for Fixed Header */}
                 <div style={{ height: '80px' }}></div>
 
                 <section className="container">
-                    <Link to="/#eventos" className="back-link">← Voltar para Eventos</Link>
+                    <Link to="/#eventos" className="back-link">
+                        <ArrowLeft size={20} /> Voltar para Eventos
+                    </Link>
 
                     <div className="event-header" data-aos="fade-up">
                         <h1>{event.title}</h1>

@@ -22,17 +22,26 @@ export default function Events({ events }) {
         ) : (
           <div className="events-grid">
             {events.map((ev, i) => (
-              <div key={ev.id} className="card" data-aos="fade-up" data-aos-delay={i * 150}>
-                <Link to={`/eventos/${ev.slug}`} style={{ textDecoration: 'none' }}>
-                  <h4 style={{ color: 'var(--primary-blue)', marginBottom: '0.5rem', cursor: 'pointer' }}>
-                    {ev.title}
-                  </h4>
-                </Link>
+              <Link
+                key={ev.slug}
+                to={`/eventos/${ev.slug}`}
+                className="event-card"
+                data-aos="fade-up"
+                data-aos-delay={i * 150}
+                style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+              >
+                {ev.image && (
+                  <div className="event-image-wrapper">
+                    <img src={ev.image} alt={ev.title} className="event-image" />
+                  </div>
+                )}
+                <h4 style={{ color: 'var(--primary-blue)', marginBottom: '0.5rem' }}>
+                  {ev.title}
+                </h4>
                 <p><CalendarDays size={18} /> <strong>{new Date(ev.date).toLocaleDateString && new Date(ev.date).toLocaleDateString('pt-BR')}</strong></p>
                 {ev.location && <p><MapPin size={18} /> {ev.location}</p>}
                 <p style={{ marginTop: '1rem' }}>{ev.description}</p>
-                <Link to={`/eventos/${ev.slug}`} className="btn-small">Saiba Mais</Link>
-              </div>
+              </Link>
             ))}
           </div>
         )}

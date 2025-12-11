@@ -65,9 +65,23 @@ collections:
       - {label: "Título", name: "title", widget: "string"}
       - {label: "Data", name: "date", widget: "datetime"}
       - {label: "Descrição Curta", name: "description", widget: "text"}
-      - {label: "Imagem de Capa", name: "image", widget: "image"}
+      - {label: "Imagem de Capa", name: "image", widget: "image", required: false}
       - {label: "Galeria de Fotos", name: "gallery", widget: "list", field: {label: "Imagem", name: "image", widget: "image"}}
       - {label: "Conteúdo Detalhado", name: "body", widget: "markdown", required: false}
+
+  - name: "announcements"
+    label: "Avisos Paroquiais"
+    folder: "src/content/announcements"
+    extension: "json"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Data de Publicação", name: "date", widget: "datetime"}
+      - {label: "Descrição", name: "description", widget: "text"}
+      - {label: "Prioridade", name: "priority", widget: "select", options: ["normal", "urgent"], default: "normal"}
+      - {label: "Imagem (Opcional)", name: "image", widget: "image", required: false}
+
 
   - name: "clergy"
     label: "Párocos (Clero)"

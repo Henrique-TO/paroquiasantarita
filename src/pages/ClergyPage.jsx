@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export default function ClergyPage() {
     return (
         <>
-            <Header title="Nosso Clero" />
+            <Header />
             <main>
                 <div style={{ height: '80px' }}></div>
                 <section className="container">

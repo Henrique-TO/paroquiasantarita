@@ -21,7 +21,7 @@ export default function ClergyProfile() {
     if (!person) {
         return (
             <>
-                <Header title={siteData.title} />
+                <Header />
                 <div className="container" style={{ padding: '150px 20px', textAlign: 'center' }}>
                     <h2>Membro do clero não encontrado</h2>
                     <Link to="/clero" className="btn-primary">Voltar para Lista</Link>
@@ -33,11 +33,11 @@ export default function ClergyProfile() {
 
     return (
         <>
-            <Header title={person.name} />
+            <Header />
             <main>
                 <div style={{ height: '80px' }}></div>
                 <section className="container" style={{ padding: '4rem 1rem' }}>
-                    <Link to="/clero" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', color: '#005a9e', fontWeight: 600, textDecoration: 'none' }}>
+                    <Link to="/clero" className="back-link">
                         <ArrowLeft size={20} /> Voltar para o Clero
                     </Link>
 

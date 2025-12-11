@@ -19,8 +19,11 @@ function loadCollection(glob) {
   });
 }
 
+
 const clergyData = import.meta.glob('../content/clergy/*.json', { eager: true });
 const eventsData = import.meta.glob('../content/events/*.json', { eager: true });
+const announcementsData = import.meta.glob('../content/announcements/*.json', { eager: true });
+
 
 const staticGalleryGlob = import.meta.glob('/public/gallery/*.{jpg,jpeg,png,webp,avif,gif}', {
   eager: true,
@@ -49,6 +52,7 @@ export const siteData = {
   tithing,
   // Sort events by date descending
   events: loadCollection(eventsData).sort((a, b) => new Date(b.date) - new Date(a.date)),
+  announcements: loadCollection(announcementsData).sort((a, b) => new Date(b.date) - new Date(a.date)),
   clergy: loadCollection(clergyData),
   // Merge: CMS images first (so user can put new ones on top), then static
   gallery: [...cmsImages, ...staticImages]

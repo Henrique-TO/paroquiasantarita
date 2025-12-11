@@ -2,6 +2,7 @@ import Header from './components/Header'
 import About from './components/About'
 import MassTimes from './components/MassTimes'
 import Events from './components/Events'
+import Announcements from './components/Announcements'
 import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -30,7 +31,7 @@ export default function App() {
 
   return (
     <>
-      <Header title={siteData.title} />
+      <Header />
       <main>
         <HeroSlider />
         <div className="container">
@@ -39,6 +40,7 @@ export default function App() {
           <Clergy data={siteData.clergy} />
           <Ministries data={siteData.ministries} />
           <Events events={siteData.events} />
+          <Announcements announcements={siteData.announcements} />
           <Liturgy />
           <Gallery images={siteData.gallery} />
           <Tithing data={siteData.tithing} />

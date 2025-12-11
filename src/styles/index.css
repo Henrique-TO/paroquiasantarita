@@ -199,9 +199,11 @@ h6,
   box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
 }
 
+
 /* ==================== CARDS GENÉRICOS ==================== */
 .card,
 .event-card,
+.announcement-card,
 .ministry-card {
   background: var(--white);
   border-radius: 32px;
@@ -213,11 +215,129 @@ h6,
 
 .card:hover,
 .event-card:hover,
+.announcement-card:hover,
 .ministry-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-lg);
   border-color: rgba(212, 175, 55, 0.3);
 }
+
+/* ==================== EVENTS & ANNOUNCEMENTS ==================== */
+.events-grid,
+.announcements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.event-card,
+.announcement-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.event-image-wrapper,
+.announcement-image-wrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--light-blue), var(--white));
+  position: relative;
+}
+
+.event-image,
+.announcement-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-image,
+.announcement-card:hover .announcement-image {
+  transform: scale(1.05);
+}
+
+.event-card>*:not(.event-image-wrapper),
+.announcement-card>*:not(.announcement-image-wrapper) {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.event-card> :first-child:not(.event-image-wrapper),
+.announcement-card> :first-child:not(.announcement-image-wrapper) {
+  padding-top: 2.5rem;
+}
+
+.event-card> :last-child,
+.announcement-card> :last-child {
+  padding-bottom: 2.5rem;
+}
+
+/* Urgent announcement indicator */
+.announcement-card.urgent {
+  border-left: 4px solid #e74c3c;
+}
+
+.announcement-card.urgent::before {
+  content: '🔴 URGENTE';
+  display: inline-block;
+  background: #e74c3c;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  margin: 2rem 0 0 2.5rem;
+}
+
+/* Button styles for cards */
+.btn-small {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 90, 158, 0.2);
+}
+
+.btn-small:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 90, 158, 0.3);
+  background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+}
+
+/* Back link with icon */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary-blue);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.back-link:hover {
+  gap: 0.8rem;
+  color: var(--dark-blue);
+}
+
+.back-link svg {
+  transition: transform 0.3s ease;
+}
+
+.back-link:hover svg {
+  transform: translateX(-4px);
+}
+
 
 /* ==================== LISTAS ==================== */
 .mass-list li,
@@ -378,6 +498,18 @@ h6,
     border-radius: 16px;
   }
 
+  /* Events and Announcements */
+  .events-grid,
+  .announcements-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .event-image-wrapper,
+  .announcement-image-wrapper {
+    height: 180px;
+  }
+
   /* WhatsApp button */
   .whatsapp-float {
     width: 56px;
@@ -446,6 +578,24 @@ h6,
 
   .gallery-grid img {
     height: 200px;
+  }
+
+  /* Events and Announcements - single column */
+  .events-grid,
+  .announcements-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .event-image-wrapper,
+  .announcement-image-wrapper {
+    height: 200px;
+  }
+
+  .event-card>*:not(.event-image-wrapper),
+  .announcement-card>*:not(.announcement-image-wrapper) {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   /* Contact */
