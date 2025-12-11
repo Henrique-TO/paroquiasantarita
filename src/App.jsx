@@ -11,6 +11,7 @@ import Clergy from './components/Clergy'
 import Ministries from './components/Ministries'
 import Liturgy from './components/Liturgy'
 import Tithing from './components/Tithing'
+import Location from './components/Location'
 import React from 'react'
 
 
@@ -41,6 +42,7 @@ export default function App() {
           <Liturgy />
           <Gallery images={siteData.gallery} />
           <Tithing data={siteData.tithing} />
+          <Location />
           <Contact contact={siteData.contact} address={siteData.address} phone={siteData.phone} />
         </div>
       </main>
