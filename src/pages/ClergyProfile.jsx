@@ -24,7 +24,7 @@ export default function ClergyProfile() {
                 <Header />
                 <div className="container" style={{ padding: '150px 20px', textAlign: 'center' }}>
                     <h2>Membro do clero não encontrado</h2>
-                    <Link to="/clero" className="btn-primary">Voltar para Lista</Link>
+                    <Link to="/" className="btn-primary">Voltar para o Inicio</Link>
                 </div>
                 <Footer />
             </>
