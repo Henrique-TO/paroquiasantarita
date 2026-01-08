@@ -1,20 +1,40 @@
 {
-    "times": [
-        {
-            "day": "Segunda-feira",
-            "timeStr": "19:30 - Missa pelas Almas"
-        },
-        {
-            "day": "1ª Sexta-feira do mês",
-            "timeStr": "07:30 - Sagrado Coração de Jesus • 19:30 - Terço das mãos ensanguentadas de Jesus • 20:00 - Missa pedindo por Cura e Libertação"
-        },
-        {
-            "day": "Demais sextas-feiras",
-            "timeStr": "08:00"
-        },
-        {
-            "day": "Domingo",
-            "timeStr": "08:00 • 10:30 • 18:00 - Missas Dominicais"
-        }
-    ]
+  "times": [
+    {
+      "day": "Domingo ",
+      "timeStr": "07:00 • 09:00 • 11:00 • 18:00 - Missas Dominicais"
+    },
+    {
+      "day": "Sábado",
+      "timeStr": "16:00 - Missa Dominical"
+    },
+    {
+      "day": "Sábado ",
+      "timeStr": "08:00"
+    },
+    {
+      "day": "Segunda-feira",
+      "timeStr": "19:30 - Novena das Almas"
+    },
+    {
+      "day": "Segunda-feira",
+      "timeStr": "20:00 - Santa Missa"
+    },
+    {
+      "day": "Terça- feira •  Sexta - feira",
+      "timeStr": "07:00"
+    },
+    {
+      "day": "1ª Sexta-feira do mês",
+      "timeStr": "07:30 - Sagrado Coração de Jesus "
+    },
+    {
+      "day": "2ª Sexta-feira do mês",
+      "timeStr": "19:30 - Terço das mãos ensanguentadas de Jesus • 20:00 - Missa clamando por Cura e Libertação"
+    },
+    {
+      "day": "Demais sextas-feiras",
+      "timeStr": "20:00"
+    }
+  ]
 }
